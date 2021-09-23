@@ -31,7 +31,7 @@ const AddList = () => {
         <div>
 
         <h1 class="text-center"></h1>
-        <div className=" d-flex justify-content-center  bg-ganger" >  
+        <div className="d-flex justify-content-center bg-ganger">  
         <input type="text" placeholder="Add todo" className="form-control w-50 bg-warning"></input>
         <Button variant="success"><FontAwesomeIcon icon={faPlusSquare}style={{ width:'3rem', height:'2rem' }}></FontAwesomeIcon></Button>
         </div>
