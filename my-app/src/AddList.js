@@ -5,15 +5,15 @@ import { faPenFancy, faTrash, faSearch, faPlusSquare} from '@fortawesome/free-so
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-const AddList = () => {
-    const input_value= useRef()
-   const onAddTask=()=>{
-      
-       let ValeurSaisie=input_value.current.value;
-       input_value.current.value=""
-       alert(input_value.current.value)
-   }
+const AddList = (props) => {
 
+ const inputTask=useRef("")
+ const onAddTask=()=>{
+    let valeurSaisie=inputTask.current.value;
+     inputTask.current.value=""
+     props.AddTasknew(valeurSaisie);
+
+ }
 
     return (
         <div>
@@ -22,9 +22,8 @@ const AddList = () => {
               <input type="text" 
               placeholder="Add todo"
               className="form-control w-50 bg-warning"
-              ref={input_value}
-              />
-              <Button variant="success" onClick={()=>onAddTask()}><FontAwesomeIcon icon={faPlusSquare} ></FontAwesomeIcon></Button>
+              ref={inputTask}/>
+              <Button variant="success" onClick={()=> onAddTask()}><FontAwesomeIcon icon={faPlusSquare} ></FontAwesomeIcon></Button>
               </div>
 
     
