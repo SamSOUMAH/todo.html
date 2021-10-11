@@ -40,13 +40,13 @@ const  App=()=>{
     const filterTaskInput = useRef("")
 
     const filterTaskByTitle=()=>{
-      let query=filterTaskInput.current.value;
+      let query=filterTaskInput.current.value.toLowerCase();
       if(query===""){
         setListTask([...listTaskBackup])
       }
       else{
         let newListTask=[...listTask];
-      newListTask=newListTask.filter((titleTask) => titleTask.includes(query))
+      newListTask=newListTask.filter((titleTask) => titleTask.toLowerCase().includes(query))
       setListTask([...newListTask])
       }
       
@@ -54,7 +54,7 @@ const  App=()=>{
    
 
   return (
-    <div className="App">
+    <div className="App bg-dark">
       <h1 className="text-center">ADD_LIST</h1>
 
     <div>
@@ -69,16 +69,13 @@ const  App=()=>{
       onKeyUp= {filterTaskByTitle}
       ref={filterTaskInput}
       ></input>
-      
       <FontAwesomeIcon icon={faSearch} style={{with:'3rem', height:'3rem'}} className="border bg-warning"></FontAwesomeIcon>
     </div>
     
 
      <ListTodo 
      list={listTask}
-     onDeleteTask={deleteTaskById}
-     /> 
-
+     onDeleteTask={deleteTaskById}/> 
     </div>
   );
 }
